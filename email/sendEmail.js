@@ -1,6 +1,5 @@
 var nodemailer = require("nodemailer");
 var handlebars = require("handlebars");
-// var smtpTransport = require("nodemailer-smtp-transport");
 var handlebars = require("handlebars");
 var fs = require("fs");
 
@@ -15,7 +14,6 @@ const sendEmail = (appointment) => {
       }
     });
   };
-  console.log("Directory is -> ", __dirname + "/emailTemplate.html");
 
   var transporter = nodemailer.createTransport({
     service: "gmail",
@@ -50,32 +48,6 @@ const sendEmail = (appointment) => {
       }
     });
   });
-
-  // console.log("A p ", appointment);
-  // var transporter = nodemailer.createTransport({
-  //   service: "gmail",
-  //   secure: false,
-  //   requireTLS: true,
-  //   auth: {
-  //     user: "developerjust1@gmail.com",
-  //     pass: "Qwerty@123",
-  //   },
-  // });
-
-  // var mailOptions = {
-  //   from: "developerjust1@gmail.com",
-  //   to: appointment.patient.patientEmail,
-  //   subject: "Information regarding appointment booked",
-  //   html: htmlToSend
-  // };
-
-  // transporter.sendMail(mailOptions, function (error, info) {
-  //   if (error) {
-  //     console.log(error);
-  //   } else {
-  //     console.log("Email sent: " + info.response);
-  //   }
-  // });
 };
 
 module.exports = sendEmail;
